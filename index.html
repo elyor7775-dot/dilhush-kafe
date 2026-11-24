@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=7b378fae-ffb7-42d1-b330-c50109a96b13
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilxush Kafe - Mukammal Menyu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #6a040f;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 183, 3, 0.3) 0%, transparent 45%),
+                radial-gradient(circle at 80% 70%, rgba(247, 127, 0, 0.3) 0%, transparent 45%),
+                linear-gradient(135deg, #590d22 0%, #800f2f 25%, #a4133c 50%, #800f2f 75%, #590d22 100%),
+                repeating-linear-gradient(45deg, rgba(255, 214, 10, 0.12) 0px, rgba(255, 214, 10, 0.12) 20px, transparent 20px, transparent 40px);
+            background-blend-mode: overlay;
+        }
+
+        .scrollbar-none::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-none {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex flex-col overflow-x-hidden">
+
+    <!-- Top Navigation -->
+    <header class="w-full px-6 py-4 flex items-center justify-between border-b border-red-900/40 relative z-20 bg-[#4a0409]/90 backdrop-blur-md">
+        <div class="flex items-center space-x-2">
+            <span class="text-2xl font-bold tracking-wide text-amber-500">dilxush kafe</span>
+            <i class="fa-solid fa-mug-hot text-amber-500"></i>
+        </div>
+
+        <nav class="hidden xl:flex items-center space-x-6 text-xs font-medium text-amber-500">
+            <a href="#" id="menuLinkBtn" class="flex flex-col items-center hover:text-amber-300 transition cursor-pointer text-amber-500"><i class="fa-solid fa-utensils mb-1"></i> <span data-i18n="menu">Menyu</span></a>
+            <a href="#" id="discountsLinkBtn" class="flex flex-col items-center hover:text-amber-300 transition cursor-pointer text-amber-500"><i class="fa-solid fa-percent mb-1"></i> <span data-i18n="discounts">Chegirmalar</span></a>
+            <a href="#" id="aboutLinkBtn" class="flex flex-col items-center hover:text-amber-300 transition cursor-pointer text-amber-500"><i class="fa-solid fa-info-circle mb-1"></i> <span data-i18n="about">Biz haqimizda</span></a>
+            <a href="#" id="chefsLinkBtn" class="flex flex-col items-center hover:text-amber-300 transition cursor-pointer text-amber-500"><i class="fa-solid fa-hat-chef mb-1"></i> <span data-i18n="chefs">👨‍🍳 Oshpazlar</span></a>
+            <a href="#" id="newsLinkBtn" class="flex flex-col items-center hover:text-amber-300 transition cursor-pointer text-amber-500"><i class="fa-solid fa-bolt mb-1"></i> <span data-i18n="news">Yangiliklar</span></a>
+            <a href="#" id="galleryLinkBtn" class="flex flex-col items-center hover:text-amber-300 transition cursor-pointer text-amber-500"><i class="fa-solid fa-image mb-1"></i> <span data-i18n="gallery">Galereya</span></a>
+        </nav>
+
+        <div class="flex items-center space-x-4">
+            <!-- Til tanlash menyusi -->
+            <div class="relative">
+                <select id="langSelect" class="bg-[#2a080c] text-amber-500 text-sm font-semibold px-3 py-1.5 rounded-xl border border-amber-500/40 focus:outline-none cursor-pointer">
+                    <option value="uz">Uz</option>
+                    <option value="ru">Ru</option>
+                    <option value="eng">Eng</option>
+                </select>
+            </div>
+            <button class="bg-amber-500 text-black font-semibold px-5 py-2 rounded-full shadow-md hover:bg-amber-400 transition" data-i18n="download">
+                Yuklab olish
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="flex-grow relative flex flex-col items-center justify-center text-center px-4 pt-6 pb-12 w-full">
+        <h1 class="text-6xl md:text-9xl font-black tracking-tight text-white/5 absolute top-10 pointer-events-none select-none z-0">dilxush kafe!</h1>
+
+        <div class="relative z-10 mb-6">
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-2 drop-shadow-md">dilxush kafe!</h2>
+            <p class="max-w-md mx-auto text-red-100 text-xs md:text-sm leading-relaxed px-4" data-i18n="hero_desc">
+                Hozirrog' yuklab oling va Dilxush Kafening xushbo'y va mazali taomlaridan bahramand bo'ling!
+            </p>
+        </div>
+
+        <div class="w-full max-w-[1400px] relative flex flex-col lg:flex-row items-center justify-between z-10 px-4 gap-6">
+            
+            <!-- Left Side -->
+            <div class="flex flex-col gap-3 lg:w-1/4">
+                <div class="w-full bg-gradient-to-r from-amber-950/80 to-[#4a0409]/90 border border-amber-500/40 rounded-2xl p-3 shadow-xl flex items-center space-x-3 backdrop-blur-sm">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 border border-amber-500/40">
+                        <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=200&q=80" alt="Chuchvara" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-left">
+                        <span class="text-[10px] bg-amber-500 text-black font-bold px-1.5 py-0.5 rounded" data-i18n="badge_national">MILLIY</span>
+                        <h4 class="text-xs font-bold text-amber-500 mt-1" data-i18n="chuchvara_title">Muzdakkina Moxito</h4>
+                        <p class="text-[10px] text-red-200" data-i18n="chuchvara_desc">Mazzali ajoyib Moxito!</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="w-full h-32 md:h-36 rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/40 bg-black/40">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=400&q=80" alt="Osh" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full h-32 md:h-36 rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/40 bg-black/40">
+                        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=400&q=80" alt="Lag'mon" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full h-32 md:h-36 rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/40 bg-black/40">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80" alt="Manti" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full h-32 md:h-36 rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/40 bg-black/40">
+                        <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=400&q=80" alt="Xonim" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Mobile Phone Mockup -->
+            <div class="w-[280px] md:w-[320px] bg-black rounded-[40px] p-3 shadow-2xl border-4 border-gray-800 relative my-2 lg:my-0 flex-shrink-0">
+                <div class="bg-[#1a0507] rounded-[32px] overflow-hidden flex flex-col text-white h-[540px] border border-gray-900">
+                    <div class="bg-[#2a080c] px-4 py-3 flex items-center justify-between text-xs border-b border-red-900/30">
+                        <div class="flex items-center space-x-1">
+                            <i class="fa-solid fa-bars text-amber-500"></i>
+                            <span class="font-medium text-[11px] text-amber-500">A.Eshonxojayev ko'chasi 4</span>
+                        </div>
+                        <i class="fa-solid fa-calendar-days text-amber-500"></i>
+                    </div>
+
+                    <div class="p-3">
+                        <div class="bg-[#3a0b10] rounded-xl px-3 py-2 flex items-center space-x-2 text-xs text-amber-500">
+                            <i class="fa-solid fa-search"></i>
+                            <span data-i18n="search_placeholder">Dilxush Kafe taomlarini qidirish</span>
+                        </div>
+                    </div>
+
+                    <div class="px-3 flex justify-between text-center text-[10px] text-red-200 mb-2">
+                        <div class="flex flex-col items-center bg-[#3a0b10] p-2 rounded-xl flex-1 mx-0.5">
+                            <i class="fa-solid fa-heart text-amber-500 mb-1"></i>
+                            <span data-i18n="fav_dishes">Sevimli Taomlar</span>
+                        </div>
+                        <div class="flex flex-col items-center bg-[#3a0b10] p-2 rounded-xl flex-1 mx-0.5">
+                            <i class="fa-solid fa-clock-rotate-left text-amber-500 mb-1"></i>
+                            <span data-i18n="order_history">Buyurtma Tarixi</span>
+                        </div>
+                        <div class="flex flex-col items-center bg-[#3a0b10] p-2 rounded-xl flex-1 mx-0.5">
+                            <i class="fa-solid fa-percent text-amber-500 mb-1"></i>
+                            <span data-i18n="coupons">Kuponlar</span>
+                        </div>
+                    </div>
+
+                    <div class="px-3 flex space-x-2 overflow-x-auto pb-2 text-xs scrollbar-none">
+                        <span class="bg-amber-500 text-black px-3 py-1 rounded-full font-medium whitespace-nowrap" data-i18n="cat_hot">Issiq Taomlar</span>
+                        <span class="bg-[#3a0b10] text-amber-500 px-3 py-1 rounded-full whitespace-nowrap" data-i18n="cat_drinks">Ichimliklar</span>
+                        <span class="bg-[#3a0b10] text-amber-500 px-3 py-1 rounded-full whitespace-nowrap" data-i18n="cat_sweets">Shirinliklar</span>
+                    </div>
+
+                    <div class="p-3">
+                        <div class="bg-gradient-to-r from-[#4a0d14] to-[#250609] p-3 rounded-2xl border border-red-800/40">
+                            <p class="text-[11px] font-bold text-amber-500">DILXUSH KAFE SPECIAL</p>
+                            <div class="mt-2 h-16 rounded-xl overflow-hidden bg-black/40">
+                                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=300&q=80" alt="Special food" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto bg-[#2a080c] py-2.5 px-6 flex justify-between items-center text-amber-500 text-xs border-t border-red-900/30">
+                        <div class="flex flex-col items-center"><i class="fa-solid fa-utensils"></i><span class="text-[9px]" data-i18n="service_type">Xizmat turi</span></div>
+                        <div class="flex flex-col items-center"><i class="fa-solid fa-mug-hot"></i><span class="text-[9px]" data-i18n="events_mob">Tadbirlar</span></div>
+                        <div class="flex flex-col items-center"><i class="fa-solid fa-calendar"></i><span class="text-[9px]" data-i18n="events_mob">Tadbirlar</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="flex flex-col gap-3 lg:w-1/4">
+                <div class="w-full bg-gradient-to-r from-amber-950/80 to-[#4a0409]/90 border border-amber-500/40 rounded-2xl p-3 shadow-xl flex items-center space-x-3 backdrop-blur-sm">
+                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 border border-amber-500/40">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=200&q=80" alt="Shashlik" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-left">
+                        <span class="text-[10px] bg-amber-500 text-black font-bold px-1.5 py-0.5 rounded" data-i18n="badge_mangal">MANGAL</span>
+                        <h4 class="text-xs font-bold text-amber-500 mt-1" data-i18n="shashlik_title">Sarxil Mayonezli Shashlik</h4>
+                        <p class="text-[10px] text-red-200" data-i18n="shashlik_desc">Cho'g'da pishgan tansiq!</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="w-full h-32 md:h-36 rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/40 bg-black/40">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80" alt="Pizza" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full h-32 md:h-36 rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/40 bg-black/40">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80" alt="Burger" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="flex flex-row items-center justify-center gap-2 bg-black/50 p-3 rounded-2xl backdrop-blur-sm border border-red-900/40 w-full">
+                    <div class="flex flex-col gap-2 flex-grow">
+                        <div class="bg-black text-amber-500 px-2 py-1.5 rounded-xl flex items-center space-x-2 border border-amber-500/40 cursor-pointer hover:bg-gray-900 transition">
+                            <i class="fa-brands fa-apple text-xl"></i>
+                            <div class="text-left">
+                                <p class="text-[8px] uppercase tracking-wider text-amber-500">Download on the</p>
+                                <p class="text-[11px] font-semibold">App Store</p>
+                            </div>
+                        </div>
+                        <div class="bg-black text-amber-500 px-2 py-1.5 rounded-xl flex items-center space-x-2 border border-amber-500/40 cursor-pointer hover:bg-gray-900 transition">
+                            <i class="fa-brands fa-google-play text-lg text-amber-500"></i>
+                            <div class="text-left">
+                                <p class="text-[8px] uppercase tracking-wider text-amber-500">GET IT ON</p>
+                                <p class="text-[11px] font-semibold">Google Play</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-amber-500 p-1.5 rounded-xl shadow-lg flex-shrink-0">
+                        <div class="w-14 h-14 bg-black flex items-center justify-center text-amber-500 rounded">
+                            <i class="fa-solid fa-qrcode text-2xl text-amber-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Menyu Modal Oynasi -->
+    <div id="menuModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+        <div class="bg-[#2a080c] border border-amber-500/40 rounded-3xl w-full max-w-3xl overflow-hidden shadow-2xl relative text-white">
+            
+            <div class="px-6 py-4 bg-[#3a0b10] flex items-center justify-between border-b border-red-900/40">
+                <h3 class="text-lg font-bold text-amber-500 flex items-center gap-2">
+                    <i class="fa-solid fa-utensils"></i> <span data-i18n="menu_title">Dilxush Kafe Menusi</span>
+                </h3>
+                <div class="flex items-center gap-5">
+                    <div id="openCartBtn" class="relative cursor-pointer text-amber-500 hover:text-amber-300 transition flex items-center gap-1.5 bg-red-950/60 px-3 py-1.5 rounded-xl border border-amber-500/30">
+                        <i class="fa-solid fa-cart-shopping text-lg"></i>
+                        <span class="text-xs font-semibold" data-i18n="cart">Savat</span>
+                        <span id="cartCounter" class="absolute -top-2 -right-2 bg-amber-500 text-black text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full shadow">0</span>
+                    </div>
+                    <div class="w-px h-6 bg-red-900/50"></div>
+                    <button id="closeModalBtn" class="text-amber-500 hover:text-amber-300 text-xl font-bold px-2">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Qidiruv paneli -->
+            <div class="px-6 pt-4">
+                <div class="bg-[#3a0b10] border border-amber-500/30 rounded-2xl px-4 py-2.5 flex items-center space-x-3">
+                    <i class="fa-solid fa-search text-amber-500"></i>
+                    <input type="text" id="menuSearchInput" placeholder="Menyudan taom qidirish..." class="w-full bg-transparent text-xs text-white placeholder-red-300 focus:outline-none" data-i18n_placeholder="search_food_placeholder">
+                </div>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-6 max-h-[65vh] overflow-y-auto scrollbar-none space-y-4">
+                <div id="menuProductsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    
+                    <!-- 1. O'zbek Oshi -->
+                    <div class="food-card bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition group">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="flex-grow">
+                            <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_national">MILLIY</span>
+                            <h4 class="font-bold text-amber-500 text-sm mt-1 product-name" data-i18n="food_osh">O'zbek Oshi</h4>
+                            <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="food_osh_desc">Haqiqiy tansiq palov.</p>
+                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-red-900/30">
+                                <span class="text-xs font-bold text-white product-price" data-price="45000">45,000 so'm</span>
+                                <button class="add-cart-btn bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                                    <i class="fa-solid fa-cart-plus"></i> <span data-i18n="add_to_cart">Savatga</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Mayonezli Shashlik -->
+                    <div class="food-card bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition group">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="flex-grow">
+                            <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_mangal">MANGAL</span>
+                            <h4 class="font-bold text-amber-500 text-sm mt-1 product-name" data-i18n="food_shashlik">Mayonezli Shashlik</h4>
+                            <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="food_shashlik_desc">Cho'g'da pishgan tansiq.</p>
+                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-red-900/30">
+                                <span class="text-xs font-bold text-white product-price" data-price="25000">25,000 so'm</span>
+                                <button class="add-cart-btn bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                                    <i class="fa-solid fa-cart-plus"></i> <span data-i18n="add_to_cart">Savatga</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Chuchvara -->
+                    <div class="food-card bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition group">
+                        <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 group-hover:scale-105 transition-transform flex-shrink-0" alt="Chuchvara">
+                        <div class="flex-grow">
+                            <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_national">MILLIY</span>
+                            <h4 class="font-bold text-amber-500 text-sm mt-1 product-name" data-i18n="food_chuchvara">Mazzali Moxito</h4>
+                            <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="food_chuchvara_desc">Muzdakkina ajoyib Moxito.</p>
+                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-red-900/30">
+                                <span class="text-xs font-bold text-white product-price" data-price="32000">32,000 so'm</span>
+                                <button class="add-cart-btn bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                                    <i class="fa-solid fa-cart-plus"></i> <span data-i18n="add_to_cart">Savatga</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Mastava -->
+                    <div class="food-card bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition group">
+                        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="flex-grow">
+                            <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_liquid">SUYUQ</span>
+                            <h4 class="font-bold text-amber-500 text-sm mt-1 product-name" data-i18n="food_mastava">To'yumli Mastava</h4>
+                            <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="food_mastava_desc">Guruch va go'shtli sho'rva.</p>
+                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-red-900/30">
+                                <span class="text-xs font-bold text-white product-price" data-price="30000">30,000 so'm</span>
+                                <button class="add-cart-btn bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                                    <i class="fa-solid fa-cart-plus"></i> <span data-i18n="add_to_cart">Savatga</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Lag'mon -->
+                    <div class="food-card bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition group">
+                        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="flex-grow">
+                            <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_handmade">QO'LDA</span>
+                            <h4 class="font-bold text-amber-500 text-sm mt-1 product-name" data-i18n="food_lagman">Cho'zma Lag'mon</h4>
+                            <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="food_lagman_desc">Uy xamiri va sabzavotlar.</p>
+                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-red-900/30">
+                                <span class="text-xs font-bold text-white product-price" data-price="38000">38,000 so'm</span>
+                                <button class="add-cart-btn bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                                    <i class="fa-solid fa-cart-plus"></i> <span data-i18n="add_to_cart">Savatga</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Manti -->
+                    <div class="food-card bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition group">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="flex-grow">
+                            <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_steam">BUG'DA</span>
+                            <h4 class="font-bold text-amber-500 text-sm mt-1 product-name" data-i18n="food_manti">Bug'lama Manti</h4>
+                            <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="food_manti_desc">To'g'ralgan go'sht va piyoz.</p>
+                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-red-900/30">
+                                <span class="text-xs font-bold text-white product-price" data-price="35000">35,000 so'm</span>
+                                <button class="add-cart-btn bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                                    <i class="fa-solid fa-cart-plus"></i> <span data-i18n="add_to_cart">Savatga</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. Sho'rva -->
+                    <div class="food-card bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition group">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="flex-grow">
+                            <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_liquid">SUYUQ</span>
+                            <h4 class="font-bold text-amber-500 text-sm mt-1 product-name" data-i18n="food_shorva">Qaynatma Sho'rva</h4>
+                            <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="food_shorva_desc">Yirik go'sht va sabzavotlar.</p>
+                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-red-900/30">
+                                <span class="text-xs font-bold text-white product-price" data-price="33000">33,000 so'm</span>
+                                <button class="add-cart-btn bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                                    <i class="fa-solid fa-cart-plus"></i> <span data-i18n="add_to_cart">Savatga</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. Xonim -->
+                    <div class="food-card bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition group">
+                        <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="flex-grow">
+                            <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_national">MILLIY</span>
+                            <h4 class="font-bold text-amber-500 text-sm mt-1 product-name" data-i18n="food_xonim">Klassik Xonim</h4>
+                            <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="food_xonim_desc">Nozik xamir va kartoshka.</p>
+                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-red-900/30">
+                                <span class="text-xs font-bold text-white product-price" data-price="28000">28,000 so'm</span>
+                                <button class="add-cart-btn bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                                    <i class="fa-solid fa-cart-plus"></i> <span data-i18n="add_to_cart">Savatga</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 9. Pitsa -->
+                    <div class="food-card bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition group">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="flex-grow">
+                            <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_fastfood">FAST FOOD</span>
+                            <h4 class="font-bold text-amber-500 text-sm mt-1 product-name" data-i18n="food_pizza">Pepperoni Pitsa</h4>
+                            <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="food_pizza_desc">Maxsus pishloqli pitsa.</p>
+                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-red-900/30">
+                                <span class="text-xs font-bold text-white product-price" data-price="65000">65,000 so'm</span>
+                                <button class="add-cart-btn bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                                    <i class="fa-solid fa-cart-plus"></i> <span data-i18n="add_to_cart">Savatga</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10. Burger -->
+                    <div class="food-card bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition group">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="flex-grow">
+                            <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_fastfood">FAST FOOD</span>
+                            <h4 class="font-bold text-amber-500 text-sm mt-1 product-name" data-i18n="food_burger">Cheeseburger</h4>
+                            <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="food_burger_desc">Mazali va sersuv go'shtli.</p>
+                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-red-900/30">
+                                <span class="text-xs font-bold text-white product-price" data-price="30000">30,000 so'm</span>
+                                <button class="add-cart-btn bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                                    <i class="fa-solid fa-cart-plus"></i> <span data-i18n="add_to_cart">Savatga</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 11. Tovuq oyoqchalari -->
+                    <div class="food-card bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition group">
+                        <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="flex-grow">
+                            <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_crispy">CRISPY</span>
+                            <h4 class="font-bold text-amber-500 text-sm mt-1 product-name" data-i18n="food_chicken">Tovuq oyoqchalari</h4>
+                            <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="food_chicken_desc">Qarsildoq va tansiq.</p>
+                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-red-900/30">
+                                <span class="text-xs font-bold text-white product-price" data-price="26000">26,000 so'm</span>
+                                <button class="add-cart-btn bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                                    <i class="fa-solid fa-cart-plus"></i> <span data-i18n="add_to_cart">Savatga</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 12. Moxito -->
+                    <div class="food-card bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition group">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=200&q=80" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="flex-grow">
+                            <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_drink">ICHIMLIK</span>
+                            <h4 class="font-bold text-amber-500 text-sm mt-1 product-name" data-i18n="food_mojito">Muzdek Moxito</h4>
+                            <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="food_mojito_desc">Tetiklashtiruvchi kokteyl.</p>
+                            <div class="flex items-center justify-between mt-2 pt-2 border-t border-red-900/30">
+                                <span class="text-xs font-bold text-white product-price" data-price="18000">18,000 so'm</span>
+                                <button class="add-cart-btn bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold px-3 py-1.5 rounded-lg transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                                    <i class="fa-solid fa-cart-plus"></i> <span data-i18n="add_to_cart">Savatga</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- "Biz haqimizda" Modal Oynasi -->
+    <div id="aboutModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+        <div class="bg-[#2a080c] border border-amber-500/40 rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl relative text-white">
+            
+            <div class="px-6 py-4 bg-[#3a0b10] flex items-center justify-between border-b border-red-900/40">
+                <h3 class="text-lg font-bold text-amber-500 flex items-center gap-2">
+                    <i class="fa-solid fa-info-circle"></i> <span data-i18n="about_title">Dilxush Kafe Haqida</span>
+                </h3>
+                <button id="closeAboutBtn" class="text-amber-500 hover:text-amber-300 text-xl font-bold px-2">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 max-h-[75vh] overflow-y-auto space-y-4 text-xs md:text-sm text-red-100 leading-relaxed">
+                <div class="bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 text-center space-y-2">
+                    <div class="w-16 h-16 bg-amber-500/20 text-amber-500 rounded-full flex items-center justify-center mx-auto text-2xl border border-amber-500/40">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-amber-500">Dilxush Kafe</h4>
+                    <p class="text-xs text-red-200" data-i18n="about_subtitle">Milliy va zamonaviy taomlar olami</p>
+                </div>
+
+                <p data-i18n="about_text">
+                    Dilxush Kafe — oilangiz va do'stlaringiz bilan mazali taomlardan bahramand bo'lish, maroqli hordiq chiqarish uchun eng qulay maskan. Bizning oshxonamizda faqatgina eng sara va sifatli mahsulotlardan foydalaniladi.
+                </p>
+
+                <div class="space-y-2 pt-2 border-t border-red-900/40">
+                    <div class="flex items-center gap-3 bg-[#3a0b10]/40 p-3 rounded-xl border border-red-900/20">
+                        <i class="fa-solid fa-motorcycle text-amber-500 text-base"></i>
+                        <div>
+                            <span class="block text-[10px] text-red-300 uppercase" data-i18n="delivery_service">Yetkazib berish xizmati:</span>
+                            <span class="font-bold text-amber-400 text-xs" data-i18n="delivery_desc">Shahar bo'ylab 35-55 daqiqagacha yetkazamiz!</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 bg-[#3a0b10]/40 p-3 rounded-xl border border-red-900/20">
+                        <i class="fa-solid fa-location-dot text-amber-500 text-base"></i>
+                        <div>
+                            <span class="block text-[10px] text-red-300 uppercase" data-i18n="address_label">Manzilimiz:</span>
+                            <span class="font-semibold text-white text-xs">A.Eshonxojayev ko'chasi 4</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 bg-[#3a0b10]/40 p-3 rounded-xl border border-red-900/20">
+                        <i class="fa-solid fa-phone text-amber-500 text-base"></i>
+                        <div>
+                            <span class="block text-[10px] text-red-300 uppercase" data-i18n="phone_label">Bog'lanish uchun telefon:</span>
+                            <a href="tel:906896080" class="font-bold text-amber-400 text-sm hover:underline">+998 (90) 689-60-80</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 bg-[#3a0b10]/40 p-3 rounded-xl border border-red-900/20">
+                        <i class="fa-solid fa-envelope text-amber-500 text-base"></i>
+                        <div>
+                            <span class="block text-[10px] text-red-300 uppercase" data-i18n="email_label">Elektron pochta (Email):</span>
+                            <a href="mailto:elyor7775@gmail.com" class="font-bold text-amber-400 text-sm hover:underline">elyor7775@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 bg-[#3a0b10]/40 p-3 rounded-xl border border-red-900/20">
+                        <i class="fa-solid fa-clock text-amber-500 text-base"></i>
+                        <div>
+                            <span class="block text-[10px] text-red-300 uppercase" data-i18n="work_hours_label">Ish vaqti:</span>
+                            <span class="font-semibold text-white text-xs" data-i18n="work_hours_val">Har kuni: 09:00 — 23:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="closeAboutModalBtn" class="w-full bg-amber-500 hover:bg-amber-400 text-black font-bold py-3 rounded-xl transition shadow-lg mt-2" data-i18n="understand">
+                    Tushunarli
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- "Oshpazlar" Modal Oynasi -->
+    <div id="chefsModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+        <div class="bg-[#2a080c] border border-amber-500/40 rounded-3xl w-full max-w-md overflow-hidden shadow-2xl relative text-white">
+            
+            <div class="px-6 py-4 bg-[#3a0b10] flex items-center justify-between border-b border-red-900/40">
+                <h3 class="text-lg font-bold text-amber-500 flex items-center gap-2">
+                    <i class="fa-solid fa-hat-chef"></i> <span data-i18n="chefs_title">Bizning Oshpazlarimiz</span>
+                </h3>
+                <button id="closeChefsBtn" class="text-amber-500 hover:text-amber-300 text-xl font-bold px-2">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 text-center space-y-4">
+                <div class="w-32 h-32 mx-auto rounded-2xl overflow-hidden border-2 border-amber-500/50 shadow-xl bg-black/40">
+                    <img id="chefImage" src="" alt="Oshpaz" class="w-full h-full object-cover">
+                </div>
+
+                <div>
+                    <h4 id="chefName" class="text-lg font-bold text-amber-400"></h4>
+                    <span id="chefSpecialty" class="inline-block text-[11px] bg-amber-500 text-black font-bold px-2.5 py-0.5 rounded-full mt-1"></span>
+                </div>
+
+                <div class="bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 text-left space-y-2 text-xs text-red-100">
+                    <div class="flex justify-between border-b border-red-900/40 pb-1.5">
+                        <span class="text-red-300"><i class="fa-solid fa-briefcase text-amber-500 mr-1.5"></i> <span data-i18n="chef_exp">Tajriba:</span></span>
+                        <span id="chefExperience" class="font-bold text-white"></span>
+                    </div>
+                    <div class="flex justify-between border-b border-red-900/40 pb-1.5">
+                        <span class="text-red-300"><i class="fa-solid fa-utensils text-amber-500 mr-1.5"></i> <span data-i18n="chef_dir">Yo'nalish:</span></span>
+                        <span id="chefDirection" class="font-bold text-white"></span>
+                    </div>
+                    <div>
+                        <span class="block text-red-300 mb-1"><i class="fa-solid fa-star text-amber-500 mr-1.5"></i> <span data-i18n="chef_bio_label">Ko'nikmalar & Ma'lumot:</span></span>
+                        <p id="chefBio" class="text-amber-200 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <button id="randomChefBtn" class="w-full bg-amber-500 hover:bg-amber-400 text-black font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-shuffle"></i> <span data-i18n="other_chef">Boshqa oshpazni ko'rish</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chegirmalar Modal Oynasi -->
+    <div id="discountsModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+        <div class="bg-[#2a080c] border border-amber-500/40 rounded-3xl w-full max-w-xl overflow-hidden shadow-2xl relative text-white">
+            <div class="px-6 py-4 bg-[#3a0b10] flex items-center justify-between border-b border-red-900/40">
+                <h3 class="text-lg font-bold text-amber-500 flex items-center gap-2">
+                    <i class="fa-solid fa-percent"></i> <span data-i18n="discounts_title">Dilxush Kafe Chegirmalari</span>
+                </h3>
+                <button id="closeDiscountsBtn" class="text-amber-500 hover:text-amber-300 text-xl font-bold px-2">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6 text-xs text-red-100 leading-relaxed space-y-4">
+                <div class="bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30">
+                    <h4 class="font-bold text-amber-500 text-sm mb-1"><i class="fa-solid fa-cake-candles"></i> <span data-i18n="disc_1_title">Tug'ilgan kun uchun 35% chegirma</span></h4>
+                    <p class="text-red-200" data-i18n="disc_1_desc">Tug'ilgan kuni bo'lgan mijozlarimizga maxsus 35% chegirma taqdim etiladi. <strong>Diqqat:</strong> Chegirmadan foydalanish uchun shaxsni tasdiqlovchi hujjat (pasport) olib borilishi shart!</p>
+                </div>
+                <div class="bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30">
+                    <h4 class="font-bold text-amber-500 text-sm mb-1"><i class="fa-solid fa-gift"></i> <span data-i18n="disc_2_title">Birinchi buyurtma uchun 20% chegirma</span></h4>
+                    <p class="text-red-200" data-i18n="disc_2_desc">Kafeimizdan ilk marotaba buyurtma berayotgan bo'lsangiz, sizga maxsus 20% chegirma taqdim etiladi!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- "Yangiliklar" Modal Oynasi -->
+    <div id="newsModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+        <div class="bg-[#2a080c] border border-amber-500/40 rounded-3xl w-full max-w-xl overflow-hidden shadow-2xl relative text-white">
+            
+            <div class="px-6 py-4 bg-[#3a0b10] flex items-center justify-between border-b border-red-900/40">
+                <h3 class="text-lg font-bold text-amber-500 flex items-center gap-2">
+                    <i class="fa-solid fa-bolt"></i> <span data-i18n="news_title">Yaqinda qo'shiladigan yangi mahsulotlar</span>
+                </h3>
+                <button id="closeNewsBtn" class="text-amber-500 hover:text-amber-300 text-xl font-bold px-2">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 max-h-[75vh] overflow-y-auto scrollbar-none space-y-4">
+                
+                <!-- 1. Meksikancha Taco -->
+                <div class="bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition">
+                    <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=200&q=80" alt="Meksikancha Taco" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 flex-shrink-0">
+                    <div>
+                        <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_new_food">YANGI TAOM</span>
+                        <h4 class="font-bold text-amber-500 text-sm mt-1" data-i18n="news_taco">Meksikancha Taco</h4>
+                        <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="news_taco_desc">Qarsildoq krispi va maxsus tansiq masalliqlar bilan to'ldirilgan o'zgacha ta'm.</p>
+                        <span class="inline-block mt-2 text-xs font-semibold text-amber-400" data-i18n="soon">Tez kunda...</span>
+                    </div>
+                </div>
+
+                <!-- 2. Yaponskacha Sushi Set -->
+                <div class="bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition">
+                    <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=200&q=80" alt="Yaponskacha Sushi Set" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 flex-shrink-0">
+                    <div>
+                        <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_new_food">YANGI TAOM</span>
+                        <h4 class="font-bold text-amber-500 text-sm mt-1" data-i18n="news_sushi">Yaponskacha Sushi Set</h4>
+                        <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="news_sushi_desc">Fresh baliq va sifatli guruchdan tayyorlanadigan haqiqiy yaponcha roliklar.</p>
+                        <span class="inline-block mt-2 text-xs font-semibold text-amber-400" data-i18n="soon">Tez kunda...</span>
+                    </div>
+                </div>
+
+                <!-- 3. Mevali Smuzi -->
+                <div class="bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition">
+                    <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=200&q=80" alt="Mevali Smuzi" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 flex-shrink-0">
+                    <div>
+                        <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_new_drink">YANGI ICHIMLIK</span>
+                        <h4 class="font-bold text-amber-500 text-sm mt-1" data-i18n="news_smoothie">Mevali Smuzi</h4>
+                        <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="news_smoothie_desc">Yangi uzilgan tropik mevalar va yogurt aralashmasidan tayyorlanadigan tetiklashtiruvchi ichimlik.</p>
+                        <span class="inline-block mt-2 text-xs font-semibold text-amber-400" data-i18n="soon">Tez kunda...</span>
+                    </div>
+                </div>
+
+                <!-- 4. Fransuz Kruassani -->
+                <div class="bg-[#3a0b10]/60 p-4 rounded-2xl border border-red-900/30 flex items-center gap-4 hover:bg-[#3a0b10] transition">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=200&q=80" alt="Fransuz Kruassani" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/30 flex-shrink-0">
+                    <div>
+                        <span class="text-[10px] bg-amber-500 text-black font-bold px-2 py-0.5 rounded" data-i18n="badge_new_sweet">YANGI SHIRINLIK</span>
+                        <h4 class="font-bold text-amber-500 text-sm mt-1" data-i18n="news_croissant">Fransuz Kruassani</h4>
+                        <p class="text-[11px] text-red-200 mt-0.5 leading-tight" data-i18n="news_croissant_desc">Qarsildoq, yog'li va og'zida eriydigan haqiqiy fransuzcha pishiriq.</p>
+                        <span class="inline-block mt-2 text-xs font-semibold text-amber-400" data-i18n="soon">Tez kunda...</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- "Galereya" Modal Oynasi -->
+    <div id="galleryModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+        <div class="bg-[#2a080c] border border-amber-500/40 rounded-3xl w-full max-w-4xl overflow-hidden shadow-2xl relative text-white">
+            
+            <div class="px-6 py-4 bg-[#3a0b10] flex items-center justify-between border-b border-red-900/40">
+                <h3 class="text-lg font-bold text-amber-500 flex items-center gap-2">
+                    <i class="fa-solid fa-image"></i> <span data-i18n="gallery_title">Dilxush Kafe Galereyasi</span>
+                </h3>
+                <button id="closeGalleryBtn" class="text-amber-500 hover:text-amber-300 text-xl font-bold px-2">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 max-h-[75vh] overflow-y-auto scrollbar-none">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="h-48 rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80" alt="Kafe Interyeri" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                    <div class="h-48 rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=400&q=80" alt="Taomlar" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                    <div class="h-48 rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=400&q=80" alt="Mehmonlarz" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                    <div class="h-48 rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80" alt="Manti" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                    <div class="h-48 rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=400&q=80" alt="Palov" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                    <div class="h-48 rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=400&q=80" alt="Kokteyl" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Savatcha Modal Oynasi -->
+    <div id="cartModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[60] hidden items-center justify-center p-4">
+        <div class="bg-[#2a080c] border border-amber-500/40 rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl relative text-white">
+            
+            <div class="px-6 py-4 bg-[#3a0b10] flex items-center justify-between border-b border-red-900/40">
+                <h3 class="text-lg font-bold text-amber-500 flex items-center gap-2">
+                    <i class="fa-solid fa-cart-shopping"></i> <span data-i18n="cart_title">Sizning Savatingiz</span>
+                </h3>
+                <button id="closeCartBtn" class="text-amber-500 hover:text-amber-300 text-xl font-bold px-2">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 space-y-4">
+                <div id="cartItemsContainer" class="max-h-[50vh] overflow-y-auto scrollbar-none space-y-3"></div>
+
+                <div class="border-t border-red-900/50 pt-4 space-y-2">
+                    <div class="flex justify-between text-sm text-red-200">
+                        <span data-i18n="cart_items_count">Xarid qilingan mahsulotlar soni:</span>
+                        <span id="totalItemsCount" class="font-bold text-amber-500">0 ta</span>
+                    </div>
+                    <div class="flex justify-between text-base font-bold text-amber-500">
+                        <span data-i18n="total_price">Umumiy summa:</span>
+                        <span id="totalPrice" class="text-amber-500">0 so'm</span>
+                    </div>
+                </div>
+
+                <button id="checkoutBtn" class="w-full bg-amber-500 hover:bg-amber-400 text-black font-bold py-3 rounded-xl transition shadow-lg mt-2 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-check-circle"></i> <span data-i18n="checkout_btn">Buyurtma berish</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buyurtma qabul qilindi xabarnomasi -->
+    <div id="successModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[70] hidden items-center justify-center p-4">
+        <div class="bg-[#2a080c] border-2 border-amber-500/50 rounded-3xl w-full max-w-md p-6 text-center shadow-2xl text-white space-y-4">
+            <div class="w-16 h-16 bg-amber-500/20 border-2 border-amber-500 text-amber-500 rounded-full flex items-center justify-center mx-auto text-3xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="text-xl font-bold text-amber-200" data-i18n="success_title">Buyurtmangiz qabul qilindi!</h3>
+            <p class="text-sm text-red-200 leading-relaxed" data-i18n="success_desc">
+                Tez orada siz bilan bog'lanamiz. Xaridingiz uchun rahmat!
+            </p>
+            <button id="successCloseBtn" class="w-full bg-amber-500 hover:bg-amber-400 text-black font-bold py-2.5 rounded-xl transition shadow-lg" data-i18n="understand">
+                Tushunarli
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript qismi -->
+    <script>
+        const translations = {
+            uz: {
+                menu: "Menyu",
+                discounts: "Chegirmalar",
+                about: "Biz haqimizda",
+                chefs: "👨‍🍳 Oshpazlar",
+                news: "Yangiliklar",
+                gallery: "Galereya",
+                download: "Yuklab olish",
+                hero_desc: "Hozirrog' yuklab oling va Dilxush Kafening xushbo'y va mazali taomlaridan bahramand bo'ling!",
+                badge_national: "MILLIY",
+                badge_mangal: "MANGAL",
+                badge_liquid: "SUYUQ",
+                badge_handmade: "QO'LDA",
+                badge_steam: "BUG'DA",
+                badge_fastfood: "FAST FOOD",
+                badge_crispy: "CRISPY",
+                badge_drink: "ICHIMLIK",
+                badge_new_food: "YANGI TAOM",
+                badge_new_drink: "YANGI ICHIMLIK",
+                badge_new_sweet: "YANGI SHIRINLIK",
+                chuchvara_title: "Mazzali Chuchvara",
+                chuchvara_desc: "Nozik xamir va qiyma!",
+                search_placeholder: "Dilxush Kafe taomlarini qidirish",
+                fav_dishes: "Sevimli Taomlar",
+                order_history: "Buyurtma Tarixi",
+                coupons: "Kuponlar",
+                cat_hot: "Issiq Taomlar",
+                cat_drinks: "Ichimliklar",
+                cat_sweets: "Shirinliklar",
+                service_type: "Xizmat turi",
+                events_mob: "Tadbirlar",
+                shashlik_title: "Sarxil Mayonezli Shashlik",
+                shashlik_desc: "Cho'g'da pishgan tansiq!",
+                menu_title: "Dilxush Kafe Menusi",
+                cart: "Savat",
+                search_food_placeholder: "Menyudan taom qidirish...",
+                food_osh: "O'zbek Oshi",
+                food_osh_desc: "Haqiqiy tansiq palov.",
+                food_shashlik: "Mayonezli Shashlik",
+                food_shashlik_desc: "Cho'g'da pishgan tansiq.",
+                food_chuchvara: "Mazzali Chuchvara",
+                food_chuchvara_desc: "Nozik xamir ichida qiyma.",
+                food_mastava: "To'yumli Mastava",
+                food_mastava_desc: "Guruch va go'shtli sho'rva.",
+                food_lagman: "Cho'zma Lag'mon",
+                food_lagman_desc: "Uy xamiri va sabzavotlar.",
+                food_manti: "Bug'lama Manti",
+                food_manti_desc: "To'g'ralgan go'sht va piyoz.",
+                food_shorva: "Qaynatma Sho'rva",
+                food_shorva_desc: "Yirik go'sht va sabzavotlar.",
+                food_xonim: "Klassik Xonim",
+                food_xonim_desc: "Nozik xamir va kartoshka.",
+                food_pizza: "Pepperoni Pitsa",
+                food_pizza_desc: "Maxsus pishloqli pitsa.",
+                food_burger: "Cheeseburger",
+                food_burger_desc: "Mazali va sersuv go'shtli.",
+                food_chicken: "Tovuq oyoqchalari",
+                food_chicken_desc: "Qarsildoq va tansiq.",
+                food_mojito: "Muzdek Moxito",
+                food_mojito_desc: "Tetiklashtiruvchi kokteyl.",
+                add_to_cart: "Savatga",
+                about_title: "Dilxush Kafe Haqida",
+                about_subtitle: "Milliy va zamonaviy taomlar olami",
+                about_text: "Dilxush Kafe — oilangiz va do'stlaringiz bilan mazali taomlardan bahramand bo'lish, maroqli hordiq chiqarish uchun eng qulay maskan. Bizning oshxonamizda faqatgina eng sara va sifatli mahsulotlardan foydalaniladi.",
+                delivery_service: "Yetkazib berish xizmati:",
+                delivery_desc: "Shahar bo'ylab 35-55 daqiqagacha yetkazamiz!",
+                address_label: "Manzilimiz:",
+                phone_label: "Bog'lanish uchun telefon:",
+                email_label: "Elektron pochta (Email):",
+                work_hours_label: "Ish vaqti:",
+                work_hours_val: "Har kuni: 09:00 — 23:00",
+                understand: "Tushunarli",
+                chefs_title: "Bizning Oshpazlarimiz",
+                chef_exp: "Tajriba:",
+                chef_dir: "Yo'nalish:",
+                chef_bio_label: "Ko'nikmalar & Ma'lumot:",
+                other_chef: "Boshqa oshpazni ko'rish",
+                discounts_title: "Dilxush Kafe Chegirmalari",
+                disc_1_title: "Tug'ilgan kun uchun 35% chegirma",
+                disc_1_desc: "Tug'ilgan kuni bo'lgan mijozlarimizga maxsus 35% chegirma taqdim etiladi. Diqqat: Chegirmadan foydalanish uchun shaxsni tasdiqlovchi hujjat (pasport) olib borilishi shart!",
+                disc_2_title: "Birinchi buyurtma uchun 20% chegirma",
+                disc_2_desc: "Kafeimizdan ilk marotaba buyurtma berayotgan bo'lsangiz, sizga maxsus 20% chegirma taqdim etiladi!",
+                news_title: "Yaqinda qo'shiladigan yangi mahsulotlar",
+                news_taco: "Meksikancha Taco",
+                news_taco_desc: "Qarsildoq krispi va maxsus tansiq masalliqlar bilan to'ldirilgan o'zgacha ta'm.",
+                news_sushi: "Yaponskacha Sushi Set",
+                news_sushi_desc: "Fresh baliq va sifatli guruchdan tayyorlanadigan haqiqiy yaponcha roliklar.",
+                news_smoothie: "Mevali Smuzi",
+                news_smoothie_desc: "Yangi uzilgan tropik mevalar va yogurt aralashmasidan tayyorlanadigan tetiklashtiruvchi ichimlik.",
+                news_croissant: "Fransuz Kruassani",
+                news_croissant_desc: "Qarsildoq, yog'li va og'zida eriydigan haqiqiy fransuzcha pishiriq.",
+                soon: "Tez kunda...",
+                gallery_title: "Dilxush Kafe Galereyasi",
+                cart_title: "Sizning Savatingiz",
+                cart_items_count: "Xarid qilingan mahsulotlar soni:",
+                total_price: "Umumiy summa:",
+                checkout_btn: "Buyurtma berish",
+                success_title: "Buyurtmangiz qabul qilindi!",
+                success_desc: "Tez orada siz bilan bog'lanamiz. Xaridingiz uchun rahmat!"
+            },
+            ru: {
+                menu: "Меню",
+                discounts: "Скидки",
+                about: "О нас",
+                chefs: "👨‍🍳 Повара",
+                news: "Новости",
+                gallery: "Галерея",
+                download: "Скачать",
+                hero_desc: "Скачайте прямо сейчас и наслаждайтесь ароматными и вкусными блюдами кафе Dilxush!",
+                badge_national: "НАЦИОНАЛЬНОЕ",
+                badge_mangal: "МАНГАЛ",
+                badge_liquid: "ПЕРВОЕ",
+                badge_handmade: "РУЧНАЯ РАБОТА",
+                badge_steam: "НА ПАРУ",
+                badge_fastfood: "ФАСТФУД",
+                badge_crispy: "КРИСПИ",
+                badge_drink: "НАПИТОК",
+                badge_new_food: "НОВОЕ БЛЮДО",
+                badge_new_drink: "НОВЫЙ НАПИТОК",
+                badge_new_sweet: "НОВЫЙ ДЕСЕРТ",
+                chuchvara_title: "Вкусная Чучвара",
+                chuchvara_desc: "Нежное тесто и мясо!",
+                search_placeholder: "Поиск блюд в Dilxush Kafe",
+                fav_dishes: "Любимые блюда",
+                order_history: "История заказов",
+                coupons: "Купоны",
+                cat_hot: "Горячие блюда",
+                cat_drinks: "Напитки",
+                cat_sweets: "Сладости",
+                service_type: "Тип услуги",
+                events_mob: "События",
+                shashlik_title: "Свежий шашлык с майонезом",
+                shashlik_desc: "Сочное мясо на углях!",
+                menu_title: "Меню Dilxush Kafe",
+                cart: "Корзина",
+                search_food_placeholder: "Поиск блюд в меню...",
+                food_osh: "Узбекский плов",
+                food_osh_desc: "Настоящий ароматный плов.",
+                food_shashlik: "Шашлык с майонезом",
+                food_shashlik_desc: "Приготовлено на углях.",
+                food_chuchvara: "Вкусная Чучвара",
+                food_chuchvara_desc: "Мясо в нежном тесте.",
+                food_mastava: "Сытная Мастава",
+                food_mastava_desc: "Суп с рисом и мясом.",
+                food_lagman: "Лагман ручной работы",
+                food_lagman_desc: "Домашняя лапша и овощи.",
+                food_manti: "Манты на пару",
+                food_manti_desc: "Рубленое мясо с луком.",
+                food_shorva: "Шурпа",
+                food_shorva_desc: "Крупные кусочки мяса и овощи.",
+                food_xonim: "Классический Ханум",
+                food_xonim_desc: "Нежное тесто и картофель.",
+                food_pizza: "Пицца Пепперони",
+                food_pizza_desc: "Фирменная пицца с сыром.",
+                food_burger: "Чизбургер",
+                food_burger_desc: "Сочный и вкусный с мясом.",
+                food_chicken: "Куриные ножки",
+                food_chicken_desc: "Хрустящие и аппетитные.",
+                food_mojito: "Ледяной Мохито",
+                food_mojito_desc: "Освежающий коктейль.",
+                add_to_cart: "В корзину",
+                about_title: "О кафе Dilxush",
+                about_subtitle: "Мир национальных и современных блюд",
+                about_text: "Dilxush Kafe — самое уютное место для наслаждения вкусной едой с семьей и друзьями, а также для приятного отдыха. В нашей кухне используются только отборные и качественные продукты.",
+                delivery_service: "Служба доставки:",
+                delivery_desc: "Доставляем по городу за 35-55 минут!",
+                address_label: "Наш адрес:",
+                phone_label: "Телефон для связи:",
+                email_label: "Электронная почта (Email):",
+                work_hours_label: "Режим работы:",
+                work_hours_val: "Ежедневно: 09:00 — 23:00",
+                understand: "Понятно",
+                chefs_title: "Наши повара",
+                chef_exp: "Опыт:",
+                chef_dir: "Направление:",
+                chef_bio_label: "Навыки и информация:",
+                other_chef: "Посмотреть другого повара",
+                discounts_title: "Скидки в Dilxush Kafe",
+                disc_1_title: "Скидка 35% в день рождения",
+                disc_1_desc: "Именинникам предоставляется специальная скидка 35%. Внимание: для получения скидки необходимо предъявить документ, удостоверяющий личность (паспорт)!",
+                disc_2_title: "Скидка 20% на первый заказ",
+                disc_2_desc: "Если вы заказываете у нас впервые, вам предоставляется специальная скидка 20%!",
+                news_title: "Скоро в меню новые блюда",
+                news_taco: "Мексиканское тако",
+                news_taco_desc: "Хрустящий хрустящий хруст с изысканными начинками.",
+                news_sushi: "Японский сет суши",
+                news_sushi_desc: "Настоящие японские роллы из свежей рыбы и качественного риса.",
+                news_smoothie: "Фруктовый смузи",
+                news_smoothie_desc: "Освежающий напиток из спелых тропических фруктов и йогурта.",
+                news_croissant: "Французский круассан",
+                news_croissant_desc: "Хрустящая, тающая во рту настоящая французская выпечка.",
+                soon: "Скоро...",
+                gallery_title: "Галерея Dilxush Kafe",
+                cart_title: "Ваша корзина",
+                cart_items_count: "Количество товаров:",
+                total_price: "Общая сумма:",
+                checkout_btn: "Оформить заказ",
+                success_title: "Ваш заказ принят!",
+                success_desc: "Мы свяжемся с вами в ближайшее время. Спасибо за покупку!"
+            },
+            eng: {
+                menu: "Menu",
+                discounts: "Discounts",
+                about: "About us",
+                chefs: "👨‍🍳 Chefs",
+                news: "News",
+                gallery: "Gallery",
+                download: "Download",
+                hero_desc: "Download now and enjoy the aromatic and delicious dishes of Dilxush Cafe!",
+                badge_national: "NATIONAL",
+                badge_mangal: "GRILL",
+                badge_liquid: "SOUPS",
+                badge_handmade: "HANDMADE",
+                badge_steam: "STEAMED",
+                badge_fastfood: "FAST FOOD",
+                badge_crispy: "CRISPY",
+                badge_drink: "DRINK",
+                badge_new_food: "NEW DISH",
+                badge_new_drink: "NEW DRINK",
+                badge_new_sweet: "NEW DESSERT",
+                chuchvara_title: "Delicious Chuchvara",
+                chuchvara_desc: "Delicate dough and minced meat!",
+                search_placeholder: "Search dishes in Dilxush Cafe",
+                fav_dishes: "Favorite Dishes",
+                order_history: "Order History",
+                coupons: "Coupons",
+                cat_hot: "Hot Dishes",
+                cat_drinks: "Drinks",
+                cat_sweets: "Sweets",
+                service_type: "Service type",
+                events_mob: "Events",
+                shashlik_title: "Fresh Mayonnaise Shashlik",
+                shashlik_desc: "Juicy coals-cooked delicacy!",
+                menu_title: "Dilxush Cafe Menu",
+                cart: "Cart",
+                search_food_placeholder: "Search dish from menu...",
+                food_osh: "Uzbek Plov",
+                food_osh_desc: "Real flavorful traditional pilaf.",
+                food_shashlik: "Mayonnaise Shashlik",
+                food_shashlik_desc: "Cooked on charcoal.",
+                food_chuchvara: "Delicious Chuchvara",
+                food_chuchvara_desc: "Minced meat in thin dough.",
+                food_mastava: "Hearty Mastava",
+                food_mastava_desc: "Rice and meat soup.",
+                food_lagman: "Handmade Lagman",
+                food_lagman_desc: "Home noodles and vegetables.",
+                food_manti: "Steamed Manti",
+                food_manti_desc: "Chopped meat and onions.",
+                food_shorva: "Boiled Shorva",
+                food_shorva_desc: "Large meat chunks and vegetables.",
+                food_xonim: "Classic Khanum",
+                food_xonim_desc: "Thin dough and potato.",
+                food_pizza: "Pepperoni Pizza",
+                food_pizza_desc: "Special cheesy pizza.",
+                food_burger: "Cheeseburger",
+                food_burger_desc: "Juicy and meaty.",
+                food_chicken: "Chicken Legs",
+                food_chicken_desc: "Crispy and savory.",
+                food_mojito: "Icy Mojito",
+                food_mojito_desc: "Refreshing cocktail.",
+                add_to_cart: "Add to cart",
+                about_title: "About Dilxush Cafe",
+                about_subtitle: "World of national and modern dishes",
+                about_text: "Dilxush Cafe is the coziest place to enjoy delicious food with family and friends and relax comfortably. Our kitchen uses only select and high-quality products.",
+                delivery_service: "Delivery service:",
+                delivery_desc: "Delivering across the city in 35-55 minutes!",
+                address_label: "Our address:",
+                phone_label: "Contact phone:",
+                email_label: "Email:",
+                work_hours_label: "Working hours:",
+                work_hours_val: "Every day: 09:00 — 23:00",
+                understand: "Understood",
+                chefs_title: "Our Chefs",
+                chef_exp: "Experience:",
+                chef_dir: "Specialty:",
+                chef_bio_label: "Skills & Bio:",
+                other_chef: "View another chef",
+                discounts_title: "Dilxush Cafe Discounts",
+                disc_1_title: "35% Birthday Discount",
+                disc_1_desc: "A special 35% discount is provided to our birthday customers. Attention: An ID document (passport) must be presented to use the discount!",
+                disc_2_title: "20% First Order Discount",
+                disc_2_desc: "If you are ordering from our cafe for the first time, you get a special 20% discount!",
+                news_title: "New products coming soon",
+                news_taco: "Mexican Taco",
+                news_taco_desc: "Crispy crunchy texture with unique special fillings.",
+                news_sushi: "Japanese Sushi Set",
+                news_sushi_desc: "Authentic Japanese rolls made with fresh fish and quality rice.",
+                news_smoothie: "Fruit Smoothie",
+                news_smoothie_desc: "Refreshing drink made from fresh tropical fruits and yogurt.",
+                news_croissant: "French Croissant",
+                news_croissant_desc: "Crispy, buttery, melt-in-your-mouth authentic French pastry.",
+                soon: "Coming soon...",
+                gallery_title: "Dilxush Cafe Gallery",
+                cart_title: "Your Cart",
+                cart_items_count: "Total items:",
+                total_price: "Total price:",
+                checkout_btn: "Checkout",
+                success_title: "Your order has been accepted!",
+                success_desc: "We will contact you shortly. Thank you for your purchase!"
+            }
+        };
+
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            const placeholders = document.querySelectorAll('[data-i18n_placeholder]');
+            placeholders.forEach(el => {
+                const key = el.getAttribute('data-i18n_placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+        }
+
+        const langSelect = document.getElementById('langSelect');
+        langSelect.addEventListener('change', (e) => {
+            setLanguage(e.target.value);
+        });
+
+        const menuLinkBtn = document.getElementById('menuLinkBtn');
+        const menuModal = document.getElementById('menuModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        
+        const aboutLinkBtn = document.getElementById('aboutLinkBtn');
+        const aboutModal = document.getElementById('aboutModal');
+        const closeAboutBtn = document.getElementById('closeAboutBtn');
+        const closeAboutModalBtn = document.getElementById('closeAboutModalBtn');
+
+        const chefsLinkBtn = document.getElementById('chefsLinkBtn');
+        const chefsModal = document.getElementById('chefsModal');
+        const closeChefsBtn = document.getElementById('closeChefsBtn');
+        const randomChefBtn = document.getElementById('randomChefBtn');
+
+        const discountsLinkBtn = document.getElementById('discountsLinkBtn');
+        const discountsModal = document.getElementById('discountsModal');
+        const closeDiscountsBtn = document.getElementById('closeDiscountsBtn');
+
+        const newsLinkBtn = document.getElementById('newsLinkBtn');
+        const newsModal = document.getElementById('newsModal');
+        const closeNewsBtn = document.getElementById('closeNewsBtn');
+
+        const galleryLinkBtn = document.getElementById('galleryLinkBtn');
+        const galleryModal = document.getElementById('galleryModal');
+        const closeGalleryBtn = document.getElementById('closeGalleryBtn');
+
+        const chefImage = document.getElementById('chefImage');
+        const chefName = document.getElementById('chefName');
+        const chefSpecialty = document.getElementById('chefSpecialty');
+        const chefExperience = document.getElementById('chefExperience');
+        const chefDirection = document.getElementById('chefDirection');
+        const chefBio = document.getElementById('chefBio');
+
+        const openCartBtn = document.getElementById('openCartBtn');
+        const cartModal = document.getElementById('cartModal');
+        const closeCartBtn = document.getElementById('closeCartBtn');
+        
+        const cartCounter = document.getElementById('cartCounter');
+        const cartItemsContainer = document.getElementById('cartItemsContainer');
+        const totalItemsCount = document.getElementById('totalItemsCount');
+        const totalPrice = document.getElementById('totalPrice');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        
+        const successModal = document.getElementById('successModal');
+        const successCloseBtn = document.getElementById('successCloseBtn');
+        const menuSearchInput = document.getElementById('menuSearchInput');
+
+        let cart = [];
+
+        const chefsList = [
+            {
+                name: "Usta Anvar Rahimov",
+                experience: "12 yil",
+                direction: "Milliy taomlar va Palov",
+                bio: "Toshkent va Samarqand oshpachilik maktabi ustasi. Haqiqiy to'y oshlari va milliy taomlar bo'yicha mutaxassis.",
+                image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                name: "Bexruzbek Mahmudov",
+                experience: "9 yil",
+                direction: "Yevropa va Osiyo oshxonasi",
+                bio: "Steyklar, dengiz mahsulotlari va murakkab souslar tayyorlash sir-asrorlarini mukammal egallagan tajribali oshpaz.",
+                image: "https://images.unsplash.com/photo-1581299894007-aaa50297cf16?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                name: "Munisa Anvarjonova",
+                experience: "6 yil",
+                direction: "Shirinliklar va Desertlar",
+                bio: "Shokoladli tortlar, fransuz kruassanlari va zamonaviy desertlar yaratish bo'yicha ijodkor qandolatchi-oshpaz.",
+                image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                name: "Sevinch Salimov",
+                experience: "11 yil",
+                direction: "Tandir va Sharqona taomlar",
+                bio: "Tandir somsa, kabob turlari va o'zgacha tansiq go'shtli taomlarni o'ziga xos retsept asosida tayyorlaydi.",
+                image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+            }
+        ];
+
+        function showRandomChef() {
+            const randomIndex = Math.floor(Math.random() * chefsList.length);
+            const chef = chefsList[randomIndex];
+
+            chefImage.src = chef.image;
+            chefName.textContent = chef.name;
+            chefSpecialty.textContent = chef.direction;
+            chefExperience.textContent = chef.experience;
+            chefDirection.textContent = chef.direction;
+            chefBio.textContent = chef.bio;
+        }
+
+        menuLinkBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            menuModal.classList.remove('hidden');
+            menuModal.classList.add('flex');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            menuModal.classList.remove('flex');
+            menuModal.classList.add('hidden');
+        });
+
+        aboutLinkBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            aboutModal.classList.remove('hidden');
+            aboutModal.classList.add('flex');
+        });
+
+        closeAboutBtn.addEventListener('click', () => {
+            aboutModal.classList.remove('flex');
+            aboutModal.classList.add('hidden');
+        });
+
+        closeAboutModalBtn.addEventListener('click', () => {
+            aboutModal.classList.remove('flex');
+            aboutModal.classList.add('hidden');
+        });
+
+        chefsLinkBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showRandomChef();
+            chefsModal.classList.remove('hidden');
+            chefsModal.classList.add('flex');
+        });
+
+        closeChefsBtn.addEventListener('click', () => {
+            chefsModal.classList.remove('flex');
+            chefsModal.classList.add('hidden');
+        });
+
+        randomChefBtn.addEventListener('click', () => {
+            showRandomChef();
+        });
+
+        if (discountsLinkBtn && discountsModal && closeDiscountsBtn) {
+            discountsLinkBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                discountsModal.classList.remove('hidden');
+                discountsModal.classList.add('flex');
+            });
+
+            closeDiscountsBtn.addEventListener('click', () => {
+                discountsModal.classList.add('hidden');
+                discountsModal.classList.remove('flex');
+            });
+
+            discountsModal.addEventListener('click', (e) => {
+                if (e.target === discountsModal) {
+                    discountsModal.classList.add('hidden');
+                    discountsModal.classList.remove('flex');
+                }
+            });
+        }
+
+        if (newsLinkBtn && newsModal && closeNewsBtn) {
+            newsLinkBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                newsModal.classList.remove('hidden');
+                newsModal.classList.add('flex');
+            });
+
+            closeNewsBtn.addEventListener('click', () => {
+                newsModal.classList.add('hidden');
+                newsModal.classList.remove('flex');
+            });
+
+            newsModal.addEventListener('click', (e) => {
+                if (e.target === newsModal) {
+                    newsModal.classList.add('hidden');
+                    newsModal.classList.remove('flex');
+                }
+            });
+        }
+
+        if (galleryLinkBtn && galleryModal && closeGalleryBtn) {
+            galleryLinkBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                galleryModal.classList.remove('hidden');
+                galleryModal.classList.add('flex');
+            });
+
+            closeGalleryBtn.addEventListener('click', () => {
+                galleryModal.classList.add('hidden');
+                galleryModal.classList.remove('flex');
+            });
+
+            galleryModal.addEventListener('click', (e) => {
+                if (e.target === galleryModal) {
+                    galleryModal.classList.add('hidden');
+                    galleryModal.classList.remove('flex');
+                }
+            });
+        }
+
+        openCartBtn.addEventListener('click', () => {
+            updateCartUI();
+            cartModal.classList.remove('hidden');
+            cartModal.classList.add('flex');
+        });
+
+        closeCartBtn.addEventListener('click', () => {
+            cartModal.classList.remove('flex');
+            cartModal.classList.add('hidden');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === menuModal) {
+                menuModal.classList.remove('flex');
+                menuModal.classList.add('hidden');
+            }
+            if (e.target === aboutModal) {
+                aboutModal.classList.remove('flex');
+                aboutModal.classList.add('hidden');
+            }
+            if (e.target === chefsModal) {
+                chefsModal.classList.remove('flex');
+                chefsModal.classList.add('hidden');
+            }
+            if (e.target === cartModal) {
+                cartModal.classList.remove('flex');
+                cartModal.classList.add('hidden');
+            }
+        });
+
+        menuSearchInput.addEventListener('input', function() {
+            const searchText = this.value.toLowerCase().trim();
+            const foodCards = document.querySelectorAll('.food-card');
+
+            foodCards.forEach(card => {
+                const productName = card.querySelector('.product-name').textContent.toLowerCase();
+                if (productName.includes(searchText)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        document.querySelectorAll('.add-cart-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.food-card');
+                const name = card.querySelector('.product-name').textContent;
+                const priceElement = card.querySelector('.product-price');
+                const price = parseInt(priceElement.getAttribute('data-price'));
+
+                const existingItem = cart.find(item => item.name === name);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ name, price, quantity: 1 });
+                }
+
+                updateCounterBadge();
+
+                const originalContent = this.innerHTML;
+                this.innerHTML = '<i class="fa-solid fa-check"></i> Qo\'shildi';
+                this.classList.remove('bg-amber-500', 'hover:bg-amber-400', 'text-black');
+                this.classList.add('bg-amber-400', 'text-black');
+
+                setTimeout(() => {
+                    this.innerHTML = originalContent;
+                    this.classList.add('bg-amber-500', 'hover:bg-amber-400', 'text-black');
+                    this.classList.remove('bg-amber-400', 'text-black');
+                }, 1500);
+            });
+        });
+
+        function updateCounterBadge() {
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCounter.textContent = totalCount;
+        }
+
+        function updateCartUI() {
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-xs text-red-300 text-center py-6">Savatchangiz bo\'sh</p>';
+                totalItemsCount.textContent = '0 ta';
+                totalPrice.textContent = '0 so\'m';
+                return;
+            }
+
+            let totalCount = 0;
+            let sumPrice = 0;
+
+            cart.forEach((item, index) => {
+                totalCount += item.quantity;
+                sumPrice += item.price * item.quantity;
+
+                const itemRow = document.createElement('div');
+                itemRow.className = 'bg-[#3a0b10]/80 p-3 rounded-xl border border-red-900/40 flex items-center justify-between text-xs';
+                itemRow.innerHTML = `
+                    <div>
+                        <h4 class="font-bold text-amber-500">${item.name}</h4>
+                        <p class="text-red-200 mt-0.5">${item.price.toLocaleString()} so'm × ${item.quantity} ta</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-bold text-amber-500">(${(item.price * item.quantity).toLocaleString()} so'm)</span>
+                        <button onclick="removeFromCart(${index})" class="text-amber-500 hover:text-amber-300"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(itemRow);
+            });
+
+            totalItemsCount.textContent = totalCount + ' ta';
+            totalPrice.textContent = sumPrice.toLocaleString() + ' so\'m';
+        }
+
+        window.removeFromCard = function(index) {
+            cart.splice(index, 1);
+            updateCounterBadge();
+            updateCartUI();
+        }
+
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Savatchangiz bo\'sh!');
+                return;
+            }
+
+            cartModal.classList.remove('flex');
+            cartModal.classList.add('hidden');
+            menuModal.classList.remove('flex');
+            menuModal.classList.add('hidden');
+
+            successModal.classList.remove('flex');
+            successModal.classList.add('flex');
+
+            cart = [];
+            updateCounterBadge();
+        });
+
+        successCloseBtn.addEventListener('click', () => {
+            successModal.classList.remove('flex');
+            successModal.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
